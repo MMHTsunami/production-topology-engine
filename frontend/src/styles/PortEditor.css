@@ -1,0 +1,240 @@
+.port-editor-modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1050;
+  backdrop-filter: blur(4px);
+}
+
+.port-editor-container {
+  background: #1a2332;
+  border: 1px solid #2d3f5b;
+  border-radius: 12px;
+  padding: 32px;
+  max-height: 90vh;
+  overflow-y: auto;
+  max-width: 800px;
+  width: 90%;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+}
+
+.port-editor-container h2 {
+  margin: 0 0 12px 0;
+  font-size: 20px;
+  font-weight: 600;
+  color: #e2e8f0;
+}
+
+.port-editor-subtitle {
+  margin: 0 0 24px 0;
+  color: #94a3b8;
+  font-size: 14px;
+}
+
+.port-editor-form {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.category-configs {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+
+.category-config-card {
+  border: 2px solid var(--accent-color);
+  border-radius: 8px;
+  padding: 1.5rem;
+  background: #0f1623;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.category-config-card:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+  border-color: var(--accent-color);
+}
+
+.category-header {
+  margin-bottom: 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 2px solid var(--accent-color);
+}
+
+.category-badge {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.category-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.category-name {
+  font-weight: 600;
+  color: #e2e8f0;
+  font-size: 1.1rem;
+  text-transform: capitalize;
+}
+
+.port-count-group {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  margin-bottom: 1.5rem;
+}
+
+.port-count-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.port-count-item label {
+  font-weight: 500;
+  color: #cbd5e1;
+  font-size: 0.95rem;
+}
+
+.count-input-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  background: #1a2332;
+  border: 1px solid #2d3f5b;
+  border-radius: 6px;
+  padding: 0.5rem;
+}
+
+.count-input {
+  flex: 1;
+  border: none;
+  outline: none;
+  font-size: 1rem;
+  font-weight: 500;
+  padding: 0.5rem;
+  background: transparent;
+  color: #e2e8f0;
+  -moz-appearance: textfield;
+}
+
+.count-input::-webkit-outer-spin-button,
+.count-input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.count-input:focus {
+  background: rgba(59, 130, 246, 0.1);
+  border-radius: 4px;
+}
+
+.count-unit {
+  color: #64748b;
+  font-size: 0.85rem;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.port-summary {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 1rem;
+  background: rgba(59, 130, 246, 0.1);
+  border-radius: 6px;
+  border-left: 3px solid var(--accent-color);
+}
+
+.summary-item {
+  font-size: 0.9rem;
+  color: #cbd5e1;
+  font-weight: 500;
+}
+
+.summary-item.input-summary::before {
+  content: '▼ ';
+  color: #3b82f6;
+  font-weight: bold;
+}
+
+.summary-item.output-summary::before {
+  content: '▲ ';
+  color: #10b981;
+  font-weight: bold;
+}
+
+.port-editor-actions {
+  display: flex;
+  gap: 1rem;
+  justify-content: flex-end;
+  padding-top: 1.5rem;
+  border-top: 1px solid #2d3f5b;
+}
+
+.btn-cancel,
+.btn-save {
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-cancel {
+  background: transparent;
+  color: #cbd5e1;
+  border: 1px solid #2d3f5b;
+}
+
+.btn-cancel:hover {
+  background: rgba(59, 130, 246, 0.1);
+  border-color: #3b82f6;
+}
+
+.btn-save {
+  background: #3b82f6;
+  color: white;
+  border: 1px solid #1e40af;
+}
+
+.btn-save:hover {
+  background: #2563eb;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+}
+
+.btn-save:active {
+  transform: translateY(0);
+}
+
+@media (max-width: 640px) {
+  .port-editor-container {
+    width: 95%;
+    padding: 1.5rem;
+  }
+
+  .category-configs {
+    grid-template-columns: 1fr;
+  }
+
+  .port-editor-actions {
+    flex-direction: column-reverse;
+  }
+
+  .btn-cancel,
+  .btn-save {
+    width: 100%;
+  }
+}
